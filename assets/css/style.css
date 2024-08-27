@@ -1,0 +1,84 @@
+:root {
+    --bg-color: #182139;
+}
+
+body {
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    color: antiquewhite;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    overflow-x: hidden; /* Prevent scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    padding: 1rem max(5%, 20px); /* Adjust padding for better fit */
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s;
+}
+
+/* Style the logo image */
+.logo img {
+    width: 80px;  /* Smaller logo for better fit */
+    height: auto;  /* Maintain aspect ratio */
+}
+
+/* Navbar styling */
+.navbar a {
+    text-decoration: none;
+    padding: 10px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #f9c74f;
+}
+
+/* Overlay for background image */
+.overlay {
+    position: relative;
+    min-height: 100vh;
+    height: 100%; /* Full viewport height */
+    background-size: cover;
+}
+
+.overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity for transparency */
+    z-index: 1;  /* Ensure overlay is above the background */
+}
+
+.header,
+.navbar,
+.logo img {
+    position: relative;
+    z-index: 2;  /* Ensure header content is above the overlay */
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.5rem max(3%, 10px);
+    }
+    .logo img {
+        width: 60px;
+    }
+}
